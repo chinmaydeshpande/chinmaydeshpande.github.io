@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinmay Deshpande | Healthcare Technology Systems Operations</title>
+    <!-- Premium Editorial Typography Stream -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ORIGINAL THEME DATA CONTEXT --- */
+        :root {
+            --bg-pure: #FFFFFF;
+            --bg-sterile: #F4F7F9; /* Original sterile blue/grey canvas */
+            --accent-primary: #00BFFF; /* Bright Sky Blue */
+            --accent-muted: rgba(0, 191, 255, 0.15);
+            --text-main: #1C2D37;
+            --text-muted: #5A6E79;
+            --border-editorial: 1px solid #E5EDF1;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'Roboto Mono', monospace;
+        }
+
+        /* --- STRUCTURAL RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background: var(--bg-pure);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- EDITORIAL NAVIGATION HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 10%;
+            border-bottom: var(--border-editorial);
+            background: var(--bg-pure);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        /* --- ASYMMETRICAL HERO PRESENTATION --- */
+        .hero {
+            padding: 8rem 10% 7rem 10%;
+            background: var(--bg-sterile);
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 5rem;
+            border-bottom: var(--border-editorial);
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-serif);
+            font-size: 3.6rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-left h1 strong {
+            font-weight: 900;
+            display: block;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-right p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            background: var(--text-main);
+            color: var(--bg-pure);
+            text-decoration: none;
+            padding: 1.1rem 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            width: max-content;
+            transition: background-color 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-primary);
+        }
+
+        /* --- THE TWO-COLUMN GRID ARCHITECTURE --- */
+        .editorial-section {
+            padding: 7rem 10%;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 5rem;
+            border-bottom: var(--border-editorial);
+        }
+
+        .editorial-section.alt-canvas {
+            background-color: var(--bg-sterile);
+        }
+
+        .section-sidebar {
+            position: relative;
+        }
+
+        .section-sidebar h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
+            position: sticky;
+            top: 7rem;
+        }
+
+        .section-sidebar h2::after {
+            content: '';
+            display: block;
+            width: 45px;
+            height: 4px;
+            background: var(--accent-primary);
+            margin-top: 1.25rem;
+        }
+
+        /* --- PROFILE OVERVIEW BLOCK --- */
+        .overview-payload {
+            max-width: 850px;
+        }
+
+        .lead-text {
+            font-size: 1.35rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 4rem;
+        }
+
+        /* Symmetric Matrix Sub-Grids */
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3.5rem;
+        }
+
+        .matrix-node h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .matrix-node p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* --- CHRONOLOGY RECORD STACK --- */
+        .card-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 4.5rem;
+        }
+
+        .chronology-card {
+            border-left: 3px solid #E5EDF1;
+            padding-left: 2.5rem;
+            transition: border-left-color 0.25s ease;
+        }
+
+        .chronology-card:hover {
+            border-left-color: var(--accent-primary);
+        }
+
+        .card-timeline {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-organization {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .chronology-card ul {
+            list-style: none;
+        }
+
+        .chronology-card li {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .chronology-card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        /* --- THE ENVIRONMENT PILL MATRIX --- */
+        .pill-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            max-width: 850px;
+        }
+
+        .env-pill {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            background: var(--bg-pure);
+            border: var(--border-editorial);
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .env-pill:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-sterile);
+        }
+
+        /* --- PIPELINE ASSETS STACK --- */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .pipeline-card {
+            background: var(--bg-pure);
+            border: var(--border-editorial);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .status-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .status-badge.staged {
+            color: var(--text-muted);
+        }
+
+        .pipeline-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .pipeline-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- EDITORIAL CONSULTATION HUB --- */
+        .contact-workspace {
+            max-width: 700px;
+        }
+
+        .contact-workspace p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .editorial-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .form-split-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-wrapper label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+        }
+
+        .input-control {
+            all: unset;
+            border-bottom: 2px solid #E5EDF1;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: border-color 0.2s ease;
+        }
+
+        .input-control:focus {
+            border-bottom-color: var(--text-main);
+        }
+
+        .submit-trigger {
+            all: unset;
+            background: var(--text-main);
+            color: var(--bg-pure);
+            padding: 1.1rem 3rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-align: center;
+            width: max-content;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-trigger:hover {
+            background: var(--accent-primary);
+        }
+
+        /* --- CORPORATE FOOTER AREA --- */
+        footer {
+            padding: 4rem 10%;
+            border-top: var(--border-editorial);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: var(--bg-pure);
+        }
+
+        footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-primary);
+        }
+
+        /* --- BROAD RESPONSIVE RE-GRIDDING --- */
+        @media (max-width: 1100px) {
+            header, .hero, .editorial-section, footer {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+            .hero-left h1 {
+                font-size: 2.8rem;
+            }
+            .editorial-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+            .section-sidebar h2 {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Simplifies layout for small screen viewports */
+            }
+            .matrix-grid, .pipeline-grid, .form-split-row {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP CONTROL NAVIGATION LINKAGE -->
+    <header>
+        <a href="#" class="logo">Chinmay<span>.</span>Deshpande</a>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#chronology">Experience</a>
+            <a href="#environments">Technical Expertise</a>
+            <a href="#pipeline">Active Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ASYMMETRICAL EDITORIAL INTRODUCTION HEADER BLOCK -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Healthcare Systems <strong>&amp; Production Stability.</strong></h1>
+        </div>
+        <div class="hero-right">
+            <p>Senior technology operations specialist managing application architecture optimization, system visibility layers, and critical data alignment strategies across enterprise clinical networks.</p>
+            <a href="#chronology" class="cta-btn">Review History Log</a>
+        </div>
+    </section>
+
+    <!-- BLOCK 1: STRATEGIC SUMMARY OVERVIEW -->
+    <section class="editorial-section" id="overview">
+        <aside class="section-sidebar">
+            <h2>Executive Overview</h2>
+        </aside>
+        <main class="overview-payload">
+            <p class="lead-text">
+                Leveraging over 10 years of specialized background directing backend application health profiles and complex infrastructure engineering layers. Focused entirely on reducing system friction in environments where continuous operational uptime is vital.
+            </p>
+            <div class="matrix-grid">
+                <div class="matrix-node">
+                    <h3>Incident Containment</h3>
+                    <p>Highly effective under high-pressure scenarios, isolating critical pipeline degradations, executing root-cause forensics, and establishing clean resolution structures.</p>
+                </div>
+                <div class="matrix-node">
+                    <h3>Interoperability Architecture</h3>
+                    <p>Substantial experience configuring backend ecosystems, messaging routes, and database coordination channels to secure clean data streams.</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- BLOCK 2: HISTORICAL CHRONOLOGY RECORD -->
+    <section class="editorial-section alt-canvas" id="chronology">
+        <aside class="section-sidebar">
+            <h2>Professional Experience</h2>
+        </aside>
+        <main class="card-stack">
+            
+            <!-- Card 1 -->
+            <div class="chronology-card">
+                <div class="card-timeline">2020 — Present</div>
+                <div class="card-title">Senior Technical Operations Leader</div>
+                <div class="card-organization">Enterprise Healthcare Technology Arrays</div>
+                <ul>
+                    <li>Directing major incident responses and infrastructure system telemetry monitoring across active medical delivery processing structures.</li>
+                    <li>Analyzing structural backend log matrices to accelerate system alignment actions and decrease platform outage durations.</li>
+                    <li>Mentoring cross-functional engineer tiers while standardizing procedural playbook documentation at scale.</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="chronology-card">
+                <div class="card-timeline">2016 — 2020</div>
+                <div class="card-title">Systems Integration Specialist &amp; Lead Engineer</div>
+                <div class="card-organization">Oracle Health / Cerner Integration Hub</div>
+                <ul>
+                    <li>Supervised stability and runtime environments for Cerner CareAware, tracking internal message distribution layers and workflow execution pathways.</li>
+                    <li>Isolated complex integration blockages across distributed software components and application layer setups.</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="chronology-card">
+                <div class="card-timeline">2013 — 2016</div>
+                <div class="card-title">Production Support Engineer</div>
+                <div class="card-organization">Clinical Application Analytics Infrastructure</div>
+                <ul>
+                    <li>Optimized relational database interactions and enterprise code blocks using Java, Spring Framework technologies, and SQL analytics tiers.</li>
+                    <li>Sustained high-volume clinical data streaming channels during acute server utilization cycles.</li>
+                </ul>
+            </div>
+
+        </main>
+    </section>
+
+    <!-- BLOCK 3: ENVIRONMENT TECHNOLOGY PILLS -->
+    <section class="editorial-section" id="environments">
+        <aside class="section-sidebar">
+            <h2>Technical Expertise</h2>
+        </aside>
+        <main class="pill-cloud">
+            <span class="env-pill">Oracle Health (Cerner)</span>
+            <span class="env-pill">CareAware Architecture</span>
+            <span class="env-pill">CareAware iBus Engine</span>
+            <span class="env-pill">Capacity Management Systems</span>
+            <span class="env-pill">Interoperability Workflows</span>
+            <span class="env-pill">Root Cause Analysis (RCA)</span>
+            <span class="env-pill">Java &amp; Spring Boot Layers</span>
+            <span class="env-pill">SQL Enterprise Architecture</span>
+            <span class="env-pill">Unix / Linux Operations</span>
+            <span class="env-pill">System Telemetry Logs</span>
+        </main>
+    </section>
+
+    <!-- BLOCK 4: DEVELOPMENT PIPELINES -->
+    <section class="editorial-section alt-canvas" id="pipeline">
+        <aside class="section-sidebar">
+            <h2>Current Projects</h2>
+        </aside>
+        <main class="pipeline-grid">
+            
+            <div class="pipeline-card">
+                <div>
+                    <span class="status-badge">[In Progress]</span>
+                    <h4>iBus Queue Telemetry Analyzer</h4>
+                </div>
+                <p>Building an autonomous operational script designed to parse message latency patterns across hospital endpoints, proactively catching throughput gaps before infrastructure thresholds are met.</p>
+            </div>
+
+            <div class="pipeline-card">
+                <div>
+                    <span class="status-badge">[In Progress]</span>
+                    <h4>Patient Flow Configuration Mapping</h4>
+                </div>
+                <p>Creating highly structured operational documentation profiles that map backend application threads directly onto modern clinical data environments for reliable environment updates.</p>
+            </div>
+
+        </main>
+    </section>
+
+    <!-- BLOCK 5: CONSULTATION HUB CONNECT -->
+    <section class="editorial-section" id="contact">
+        <aside class="section-sidebar">
+            <h2>Contact &amp; Engagement</h2>
+        </aside>
+        <main class="contact-workspace">
+            <p>Initiate communication to schedule systems analysis, operations configuration planning, or strategic infrastructure consulting engagements.</p>
+            
+            <!-- Formspree Endpoint Ready -->
+            <form class="editorial-form" action="https://formspree.io/f/mzdqzkew" method="POST">
+                <div class="form-split-row">
+                    <div class="input-wrapper">
+                        <label for="name">Your Name / Title</label>
+                        <input type="text" id="name" name="name" class="input-control" placeholder="e.g. Director of Operations" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="email">Corporate Email Address</label>
+                        <input type="email" id="email" name="email" class="input-control" placeholder="name@organization.com" required>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="message">Engagement Objectives / Inquiry</label>
+                    <textarea id="message" name="message" class="input-control" rows="4" placeholder="Detail the technical environment scope or scheduling availability..." required></textarea>
+                </div>
+                <button type="submit" class="submit-trigger">Submit Inquiry</button>
+            </form>
+        </main>
+    </section>
+
+    <!-- CLEAN CORPORATE FOOTER AREA -->
+    <footer>
+        <div>&copy; 2026 Chinmay Deshpande. Enterprise Systems Operations Consultant.</div>
+        <div>Credentials Hub: <a href="https://www.linkedin.com/in/deshpandechinmay" target="_blank" rel="noopener noreferrer">LinkedIn Authorization Verified</a></div>
+    </footer>
+
+</body>
+</html>
